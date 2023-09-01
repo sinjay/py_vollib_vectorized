@@ -76,8 +76,8 @@ def numerical_gamma_black(flags, Fs, Ks, ts, rs, sigmas):
         if t == 0:
             gamma = np.inf if F == K else 0.0
         else:
-            gamma = (black(flag, F + dS, K, t, r, sigma) - 2. * black(flag, F, K, t, r, sigma) + \
-                     black(flag, F - dS, K, t, r, sigma)) / dS ** 2.
+            gamma = (black(F + dS, K, sigma, t, flag) - 2. * black(F, K, sigma, t, flag) + \
+                     black(F - dS, K, sigma, t, flag)) / dS ** 2.
 
         gammas.append(gamma)
     return gammas
